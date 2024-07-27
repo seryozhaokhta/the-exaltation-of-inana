@@ -8,6 +8,14 @@ export class Tooltip {
     this.currentKeywordIndex = -1;
     this.keywords = [];
     this.glossary = glossary;
+
+    document.addEventListener("click", (event) => {
+      if (!this.tooltipElement.contains(event.target)) {
+        this.hide();
+        this.clearHighlight();
+        this.currentKeywordIndex = -1;
+      }
+    });
   }
 
   show(text, x, y) {
@@ -37,12 +45,10 @@ export class Tooltip {
         this.keywords.length;
     }
 
-    this.clearHighlight();
     this.highlightKeyword(this.keywords[this.currentKeywordIndex]);
   }
 
   selectKeyword(keywordElement) {
-    this.clearHighlight();
     this.highlightKeyword(keywordElement);
     this.currentKeywordIndex = Array.from(this.keywords).indexOf(
       keywordElement
@@ -52,13 +58,17 @@ export class Tooltip {
   clearHighlight() {
     this.keywords.forEach((keyword) => {
       keyword.classList.remove("dimmed");
+      keyword.classList.remove("active");
     });
   }
 
   highlightKeyword(keywordElement) {
+    this.clearHighlight();
     this.keywords.forEach((keyword) => {
       if (keyword !== keywordElement) {
         keyword.classList.add("dimmed");
+      } else {
+        keyword.classList.add("active");
       }
     });
 

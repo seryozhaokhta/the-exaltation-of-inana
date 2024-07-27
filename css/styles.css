@@ -21,20 +21,28 @@ strong {
   font-weight: bold;
 }
 
-.keyword {
-  border-bottom: 1px dashed #000;
-  cursor: pointer;
-}
-
 .tooltip {
   position: absolute;
   background-color: #fff;
   border: 1px solid #ccc;
+  border-radius: 6px;
   padding: 10px;
   box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
   display: none;
 }
 
+.keyword {
+  border-bottom: 1px dashed #000;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
 .keyword.dimmed {
   opacity: 0.5;
+}
+
+.keyword.active {
+  font-weight: bold;
+  color: gold;
+  transform: scale(1.1);
 }
