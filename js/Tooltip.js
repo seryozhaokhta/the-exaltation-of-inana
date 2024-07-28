@@ -74,6 +74,9 @@ export class Tooltip {
       }
     });
 
+    // Прокрутка до активного ключевого слова
+    keywordElement.scrollIntoView({ behavior: "smooth", block: "center" });
+
     const rect = keywordElement.getBoundingClientRect();
     const keywordText = keywordElement.dataset.keyword;
     const definition = this.glossary[keywordText] || "No definition available";
