@@ -9,6 +9,8 @@
   --tooltip-shadow-color: rgba(0, 0, 0, 0.1);
   --keyword-underline-color: #000;
   --keyword-hover-opacity: 0.5;
+  --circle-color: #000;
+  --circle-hover-color: #555;
 }
 
 body {
@@ -55,4 +57,19 @@ strong {
 
 .keyword.active {
   color: var(--highlight-color);
+}
+
+.expandable {
+  color: var(--circle-color);
+  cursor: pointer;
+  transition: color 0.3s ease;
+}
+
+.expandable:hover {
+  color: var(--circle-hover-color);
+}
+
+.expandable.expanded {
+  font-style: italic;
+  transition: color 0.3s ease, font-style 0.3s ease;
 }

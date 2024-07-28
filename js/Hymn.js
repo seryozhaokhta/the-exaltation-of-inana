@@ -1,4 +1,6 @@
-// js\Hymn.js
+// js/Hymn.js
+
+import { ExpandableText } from "./ExpandableText.js";
 
 export class Hymn {
   constructor(data) {
@@ -12,9 +14,18 @@ export class Hymn {
       const lineElement = document.createElement("p");
       lineElement.innerHTML = `<strong>${
         line.number
-      }</strong> ${this.highlightKeywords(line.text, line.keywords)}`;
+      }</strong> ${this.processText(line.text, line.keywords)}`;
       contentDiv.appendChild(lineElement);
     });
+
+    // Initialize ExpandableText functionality
+    new ExpandableText();
+  }
+
+  processText(text, keywords) {
+    text = this.highlightKeywords(text, keywords);
+    text = this.replaceParentheticalText(text);
+    return text;
   }
 
   highlightKeywords(text, keywords) {
@@ -26,5 +37,13 @@ export class Hymn {
       );
     });
     return text;
+  }
+
+  replaceParentheticalText(text) {
+    return text.replace(
+      /\((.*?)\)/g,
+      (match, p1) =>
+        `<span class="expandable" data-hidden-text="${p1}">&#9679;</span>`
+    );
   }
 }

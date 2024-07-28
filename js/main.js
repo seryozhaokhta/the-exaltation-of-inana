@@ -1,4 +1,4 @@
-// js\main.js
+// js/main.js
 
 import { Hymn } from "./Hymn.js";
 import { Tooltip } from "./Tooltip.js";
