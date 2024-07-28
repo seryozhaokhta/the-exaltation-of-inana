@@ -9,13 +9,15 @@ export class Tooltip {
     this.keywords = [];
     this.glossary = glossary;
 
-    document.addEventListener("click", (event) => {
-      if (!this.tooltipElement.contains(event.target)) {
-        this.hide();
-        this.clearHighlight();
-        this.currentKeywordIndex = -1;
-      }
-    });
+    document.addEventListener("click", this.handleDocumentClick.bind(this));
+  }
+
+  handleDocumentClick(event) {
+    if (!this.tooltipElement.contains(event.target)) {
+      this.hide();
+      this.clearHighlight();
+      this.currentKeywordIndex = -1;
+    }
   }
 
   show(text, x, y) {
@@ -82,4 +84,3 @@ export class Tooltip {
     );
   }
 }
-

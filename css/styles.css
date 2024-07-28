@@ -1,5 +1,16 @@
 /* css\styles.css */
 
+:root {
+  --background-color: #fff;
+  --border-color: #ccc;
+  --text-color: #000;
+  --highlight-color: gold;
+  --tooltip-text-color: #000;
+  --tooltip-shadow-color: rgba(0, 0, 0, 0.1);
+  --keyword-underline-color: #000;
+  --keyword-hover-opacity: 0.5;
+}
+
 body {
   font-family: Helvetica, sans-serif;
   line-height: 1.6;
@@ -23,26 +34,25 @@ strong {
 
 .tooltip {
   position: absolute;
-  background-color: #fff;
-  border: 1px solid #ccc;
+  background-color: var(--background-color);
+  border: 1px solid var(--border-color);
   border-radius: 6px;
   padding: 10px;
-  box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+  box-shadow: 0px 0px 10px var(--tooltip-shadow-color);
+  color: var(--tooltip-text-color);
   display: none;
 }
 
 .keyword {
-  border-bottom: 1px dashed #000;
+  border-bottom: 1px dashed var(--keyword-underline-color);
   cursor: pointer;
   transition: all 0.3s ease;
 }
 
 .keyword.dimmed {
-  opacity: 0.5;
+  opacity: var(--keyword-hover-opacity);
 }
 
 .keyword.active {
-  font-weight: bold;
-  color: gold;
-  transform: scale(1.1);
+  color: var(--highlight-color);
 }
