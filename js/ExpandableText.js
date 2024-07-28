@@ -17,7 +17,7 @@ export class ExpandableText {
           element.innerHTML = "&#9679;"; // Black circle
           element.classList.remove("expanded");
         } else {
-          element.innerHTML = hiddenText;
+          element.innerHTML = `(${hiddenText})`;
           element.classList.add("expanded");
         }
       });
