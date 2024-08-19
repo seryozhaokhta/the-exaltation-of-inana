@@ -1,75 +1,58 @@
-/* css\styles.css */
-
-:root {
-  --background-color: #fff;
-  --border-color: #ccc;
-  --text-color: #000;
-  --highlight-color: gold;
-  --tooltip-text-color: #000;
-  --tooltip-shadow-color: rgba(0, 0, 0, 0.1);
-  --keyword-underline-color: #000;
-  --keyword-hover-opacity: 0.5;
-  --circle-color: #000;
-  --circle-hover-color: #555;
-}
+/* css/styles.css */
 
 body {
   font-family: Helvetica, sans-serif;
-  line-height: 1.6;
-  margin: 20px;
+  background-color: #f4f4f4;
+  color: #333;
+  margin: 0;
+  padding: 20px;
 }
 
-#content {
+#app {
   max-width: 800px;
-  margin: auto;
+  margin: 0 auto;
 }
 
-p {
-  margin: 10px 0;
+#hymn-container {
+  margin-top: 20px;
 }
 
-strong {
-  display: block;
+.hymn-line {
+  margin-bottom: 20px;
+}
+
+.hymn-line h2 {
+  font-size: 1.2em;
   margin-bottom: 5px;
-  font-weight: bold;
 }
 
-.tooltip {
-  position: absolute;
-  background-color: var(--background-color);
-  border: 1px solid var(--border-color);
-  border-radius: 6px;
-  padding: 10px;
-  box-shadow: 0px 0px 10px var(--tooltip-shadow-color);
-  color: var(--tooltip-text-color);
-  display: none;
+.hymn-line .sumerian-text {
+  font-family: "Courier New", Courier, monospace;
+  color: #555;
 }
 
-.keyword {
-  border-bottom: 1px dashed var(--keyword-underline-color);
-  cursor: pointer;
-  transition: all 0.3s ease;
-}
-
-.keyword.dimmed {
-  opacity: var(--keyword-hover-opacity);
-}
-
-.keyword.active {
-  color: var(--highlight-color);
-}
-
-.expandable {
-  color: var(--circle-color);
-  cursor: pointer;
-  transition: color 0.3s ease;
-}
-
-.expandable:hover {
-  color: var(--circle-hover-color);
-}
-
-.expandable.expanded {
+.hymn-line .translation {
   font-style: italic;
-  transition: color 0.3s ease, font-style 0.3s ease;
+  color: #777;
+}
+
+.hymn-line .explanation {
+  margin-top: 10px;
+  background-color: #eef;
+  padding: 5px;
+  border-radius: 5px;
+}
+
+.translation-line .toggle-details {
+  background-color: transparent;
+  color: #333;
+  padding: 3px;
+  border: none;
+  cursor: pointer;
+  font-size: 1em;
+  vertical-align: baseline;
+}
+.details {
+  overflow: hidden; /* Это поможет скрыть любые дергания при изменении высоты */
+  padding: 0; /* Убираем padding, чтобы он не влиял на анимацию */
 }
